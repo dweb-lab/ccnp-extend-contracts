@@ -87,15 +87,12 @@ contract NFT is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burnable, Owna
         _setTokenURI(newItemId, uri);
         setApprovalForAll(marketAddress, true);
 
-        uint256 giftScore = 1 ether; // TODO
-        // balances[msg.sender]-= giftScore; // uint256
-        // transfer the tokens from the sender to this contract
-        // ERC20(tracker_0x_addressM).transferFrom(msg.sender, address(this), tokens);
-
-        IERC20 scoreToken = ERC20(scoreAddress);
-        uint256 erc20balance = scoreToken.balanceOf(address(this));
-        require(giftScore < erc20balance, "balance too low");
-        ERC20(scoreAddress).transfer(msg.sender, giftScore); // for proof of creation
+        // uint256 giftScore = 1 ether; // TODO
+        // IERC20 scoreToken = ERC20(scoreAddress);
+        // uint256 erc20balance = scoreToken.balanceOf(address(this));
+        // require(giftScore < erc20balance, "balance too low");
+        // ERC20(scoreAddress).transfer(msg.sender, giftScore); // for proof of creation
+        
         return newItemId;
     }
 
