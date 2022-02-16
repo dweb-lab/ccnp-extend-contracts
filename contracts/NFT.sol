@@ -146,9 +146,9 @@ contract NFT is
     // require(ownerOfContract == owner());
     // payable(ownerOfContract).transfer(1 ether); // for proof of donation
     // payable(owner()).transfer(1 ether); // for proof of donation
-    uint256 author_amount = SafeMath.mul(SafeMath.div(msg.value, 10), 9);
-    payable(_author).transfer(author_amount);
-    payable(owner()).transfer(msg.value - author_amount);
+    uint256 authorAmount = SafeMath.mul(SafeMath.div(msg.value, 10), 9);
+    payable(_author).transfer(authorAmount);
+    payable(owner()).transfer(msg.value - authorAmount);
 
     IERC20 scoreToken = ERC20(scoreAddress);
     require(msg.value < scoreToken.balanceOf(address(this)), "balance too low");

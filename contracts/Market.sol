@@ -106,8 +106,6 @@ contract NFTMarket is ReentrancyGuard {
       "Please submit the asking price in order to complete the purchase"
     );
 
-    idToMarketItem[itemId].seller.transfer(msg.value);
-    IERC721(nftContract).transferFrom(address(this), msg.sender, tokenId);
     idToMarketItem[itemId].owner = payable(msg.sender);
     idToMarketItem[itemId].sold = true;
 
@@ -115,6 +113,8 @@ contract NFTMarket is ReentrancyGuard {
     tidToMarketItem[tokenId].sold = true;
 
     _itemsSold.increment();
+    idToMarketItem[itemId].seller.transfer(msg.value);
+    IERC721(nftContract).transferFrom(address(this), msg.sender, tokenId);
     payable(owner).transfer(listingPrice);
   }
 
@@ -138,8 +138,6 @@ contract NFTMarket is ReentrancyGuard {
       "Please submit the asking price in order to complete the purchase"
     );
 
-    idToMarketItem[itemId].seller.transfer(msg.value);
-    IERC721(nftContract).transferFrom(address(this), msg.sender, tokenId);
     idToMarketItem[itemId].owner = payable(msg.sender);
     idToMarketItem[itemId].sold = true;
 
@@ -147,6 +145,8 @@ contract NFTMarket is ReentrancyGuard {
     tidToMarketItem[tokenId].sold = true;
 
     _itemsSold.increment();
+    idToMarketItem[itemId].seller.transfer(msg.value);
+    IERC721(nftContract).transferFrom(address(this), msg.sender, tokenId);
     payable(owner).transfer(listingPrice);
   }
 
