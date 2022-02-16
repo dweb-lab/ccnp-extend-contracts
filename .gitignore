@@ -9,3 +9,8 @@ cache
 artifacts
 
 package-lock.json
+
+.market_addr
+.nft_addr
+.spt_addr
+config.js

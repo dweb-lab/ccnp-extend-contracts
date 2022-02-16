@@ -13,20 +13,20 @@ async function main() {
   await nft.deployed()
   console.log("nft deployed to:", nft.address)
 
-  let config = `
+  const config = `
 export const simpletokenaddress = "${spt_addr}"
 export const nftmarketaddress = "${nftMarket.address}"
 export const nftaddress = "${nft.address}"
 `
 
-  let data = JSON.stringify(config)
+  const data = JSON.stringify(config)
   fs.writeFileSync("config.js", JSON.parse(data))
 
-  let nft_addr = `${nft.address}`
-  let data_nft_addr = JSON.stringify(nft.address)
+  const nft_addr = `${nft.address}`
+  const data_nft_addr = JSON.stringify(nft.address)
   fs.writeFileSync(".nft_addr", JSON.parse(data_nft_addr))
-  let market_addr = `${nftMarket.address}`
-  let data_market_addr = JSON.stringify(nftMarket.address)
+  const market_addr = `${nftMarket.address}`
+  const data_market_addr = JSON.stringify(nftMarket.address)
   fs.writeFileSync(".market_addr", JSON.parse(data_market_addr))
 }
 
@@ -36,5 +36,3 @@ main()
     console.error(error)
     process.exit(1)
   })
-
-

@@ -35,7 +35,7 @@ describe("NFTMarket", function () {
     items = await Promise.all(
       items.map(async (i) => {
         const tokenUri = await nft.tokenURI(i.tokenId)
-        let item = {
+        const item = {
           price: i.price.toString(),
           tokenId: i.price.toString(),
           seller: i.seller,
